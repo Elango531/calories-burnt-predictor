@@ -8,7 +8,7 @@ from sklearn.model_selection import train_test_split
 def train_model():
     df = pd.read_csv("calories.csv")
     le = LabelEncoder
-    df["Gender"] = le.fit_transform(df["Gender"]
+    df["Gender"] = le.fit_transform(df["Gender"])
      df = df.drop(columns=['User_ID'])
     X = df.drop(columns=['Calories'])
     y = df['Calories']
