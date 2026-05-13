@@ -5,7 +5,7 @@ from sklearn.ensemble import RandomForestRegressor
 from sklearn.preprocessing import LabelEncoder
 from sklearn.model_selection import train_test_split
 
-# Train model directly from CSV
+
 @st.cache_resource
 def train_model():
     df = pd.read_csv('calories.csv')
@@ -26,7 +26,7 @@ model = train_model()
 st.title('🔥 Calories Burnt Predictor')
 st.write('Enter your exercise details to predict calories burned!')
 
-# Sidebar inputs
+
 st.sidebar.header('Enter Your Details')
 
 gender = st.sidebar.selectbox('Gender', ['Male', 'Female'])
@@ -37,10 +37,8 @@ duration = st.sidebar.slider('Exercise Duration (mins)', 1, 60, 30)
 heart_rate = st.sidebar.slider('Heart Rate (bpm)', 60, 130, 90)
 body_temp = st.sidebar.slider('Body Temperature (°C)', 37.0, 42.0, 39.0)
 
-# Convert gender to number
 gender_num = 1 if gender == 'Male' else 0
 
-# Predict button
 if st.sidebar.button('Predict Calories! 🔥'):
     input_data = np.array([[gender_num, age, height,
                             weight, duration,
